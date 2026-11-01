@@ -44,6 +44,7 @@ Every game is a standalone repo that also plugs into the portal. They share one 
 | 🏓 **Breakout** (this repo) | [Breakout-Game](https://github.com/ZoliQua/Breakout-Game) | Paddle |
 | 👾 Space Invaders | [Space-Invaders-Game](https://github.com/ZoliQua/Space-Invaders-Game) | Shooter |
 | 🔴 Connect Four | [Connect-Four-Game](https://github.com/ZoliQua/Connect-Four-Game) | Duel |
+| 🔩 Nut Sort | [Nut-Sort-Game](https://github.com/ZoliQua/Nut-Sort-Game) | Sorting |
 
 ## ✨ Features
 
