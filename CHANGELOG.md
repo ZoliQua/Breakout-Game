@@ -6,21 +6,21 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-## [1.0.2] — 2026-12-06
+## [1.0.2] — 2026-11-04
 
 ### Changed
 
 - Vendored kit (`src/arcade/`) updated: the registry knows the eleventh arcade game, Texas Hold'em, with its accent colour.
 - README: the Zoltan's Arcade family table lists all eleven games.
 
-## [1.0.1] — 2026-11-22
+## [1.0.1] — 2026-11-01
 
 ### Changed
 
 - Vendored kit (`src/arcade/`) updated: the registry knows the tenth arcade game, Nut Sort, with its accent colour.
 - README: the Zoltan's Arcade family table lists all ten games.
 
-## [1.0.0] - 2026-11-03
+## [1.0.0] - 2026-10-27
 
 ### Added
 - Breakout for Zoltan's Arcade: 480 × 360 logical playfield rendered as a scalable SVG, paddle with angle control
