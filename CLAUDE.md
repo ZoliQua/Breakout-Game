@@ -43,7 +43,7 @@ src/
   arcade/          # VENDORED shared kit from Arcade-Game-Center/packages/kit — never edit here
   logic/           # types, constants, rng, levels, game (createInitialState + step), autopilot, persist (+ *.test.ts)
   hooks/           # useFrameLoop (rAF), useBreakoutKeys (held keys + hotkeys), useSound (Web Audio)
-  components/      # Playfield (SVG, full + mini), PowerUpList, SoundToggle, palette
+  components/      # Playfield (SVG, full + mini; dental skin via useDental), PowerUpList, SoundToggle, DentalToggle, palette
   demo/            # BreakoutDemo — landing-page attract mode
   BreakoutGame.tsx # embeddable game, ArcadeGameProps
   App.tsx          # standalone page: <ArcadeShell gameId="breakout"><BreakoutGame/></ArcadeShell>
