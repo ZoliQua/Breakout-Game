@@ -2,7 +2,7 @@
 
 ## Project Facts
 
-- **Repository**: https://github.com/ZoliQua/Breakout-Game (portal: https://drdul.hu/arcade/#/play/breakout)
+- **Repository**: https://github.com/ZoliQua/Breakout-Game (portal: https://dulzoltan.hu/arcade/#/play/breakout)
 - **Arcade game id**: `breakout` · component `BreakoutGame` · demo `BreakoutDemo`
 - **Stack**: React 18, Vite 5, TypeScript 5, CSS Modules (+ the shared `src/arcade/arcade.css`)
 - **Package manager**: npm

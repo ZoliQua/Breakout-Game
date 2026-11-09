@@ -1,7 +1,7 @@
 # 🏓 Breakout
 
 A polished, type-safe Breakout / Arkanoid-lite built with **React 18**, **Vite** and **TypeScript** — hand-designed walls, multi-hit and steel bricks, power-ups and multiball, rendered as a crisp scalable SVG with no game engine.
-Runs on its own **and** as one of the games of **[Zoltan's Arcade](https://github.com/ZoliQua/Arcade-Game-Center)** — [play it in the portal](https://drdul.hu/arcade/#/play/breakout).
+Runs on its own **and** as one of the games of **[Zoltan's Arcade](https://github.com/ZoliQua/Arcade-Game-Center)** — [play it in the portal](https://dulzoltan.hu/arcade/#/play/breakout).
 
 [![CI](https://github.com/ZoliQua/Breakout-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/ZoliQua/Breakout-Game/actions/workflows/ci.yml)
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -60,6 +60,8 @@ Every game is a standalone repo that also plugs into the portal. They share one 
 - 💾 **Autosave & resume** — close the tab mid-rally and pick up exactly where you left off; the tab going hidden pauses the game
 - 🏆 **Unified arcade stats** — best score, plays, total time, shared with the portal
 - 🌗 **Dark / light theme** shared with every arcade game (press **T**)
+- 🌍 **Three languages** — English, Hungarian and German; switch in the top bar or in the settings (also `?lang=en|hu|de` for link hand-off); numbers follow the locale's grouping
+- 🦷 **Dental mode** — a „Fogas mód” / "Dental mode" / „Zahnmodus” toggle in the settings, off by default (or `?dental=1`), shared across the whole arcade: the paddle is a toothbrush, the ball a toothpaste ball and the bricks tartar and plaque with distinct brush, paste and probe marks; presentation only
 - 🤖 **Attract-mode demo** (`<BreakoutDemo />`) — the real engine with an autopilot paddle, shown on the portal's landing page
 - 🧪 **Tested** — engine, autopilot and save-validator unit tests plus component tests with Vitest + Testing Library
 
