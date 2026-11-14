@@ -1,7 +1,9 @@
 # 🏓 Breakout
 
-A polished, type-safe Breakout / Arkanoid-lite built with **React 18**, **Vite** and **TypeScript** — hand-designed walls, multi-hit and steel bricks, power-ups and multiball, rendered as a crisp scalable SVG with no game engine.
-Runs on its own **and** as one of the games of **[Zoltan's Arcade](https://github.com/ZoliQua/Arcade-Game-Center)** — [play it in the portal](https://dulzoltan.hu/arcade/#/play/breakout).
+**English** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
+
+A polished, type-safe Breakout / Arkanoid-lite built with **React 18**, **Vite** and **TypeScript** — hand-designed walls, multi-hit and steel bricks, power-ups and multiball, rendered as a crisp scalable SVG with no game engine — keyboard, mouse and touch.
+Runs on its own **and** as one of the fifteen games of **[Zoltan's Arcade](https://github.com/ZoliQua/Arcade-Game-Center)** — [play it in the portal](https://dulzoltan.hu/arcade/#/play/breakout).
 
 [![CI](https://github.com/ZoliQua/Breakout-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/ZoliQua/Breakout-Game/actions/workflows/ci.yml)
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -49,6 +51,7 @@ Every game is a standalone repo that also plugs into the portal. They share one 
 | 💣 Minesweeper | [Minesweeper-Game](https://github.com/ZoliQua/Minesweeper-Game) | Logic |
 | ♠️ Solitaire | [Solitaire-Game](https://github.com/ZoliQua/Solitaire-Game) | Cards |
 | 🎴 Ulti | [Ulti-Game](https://github.com/ZoliQua/Ulti-Game) | Cards |
+| 🂡 Snapszer | [Snapszer-Game](https://github.com/ZoliQua/Snapszer-Game) | Cards |
 
 ## ✨ Features
 
@@ -59,6 +62,10 @@ Every game is a standalone repo that also plugs into the portal. They share one 
 - 🧮 **Robust physics** — sub-stepped, axis-separated movement: the ball never tunnels through a brick or the paddle and side hits reflect correctly
 - 🎲 **Deterministic** — a fixed 120 Hz simulation with a seeded RNG stored in the game state (same seed + same input = same game)
 - 🖱️ **Keyboard, mouse and touch** — arrows / A D, move the pointer over the board, or drag with a finger
+- 📖 **Rules dialog** with a bounce-angle diagram (opening it pauses the run)
+- 🏁 **Finish early** — end a run on purpose and put the current score on the leaderboard
+- 📱 **Touch play** — drag anywhere on the board to move the paddle, tap to launch
+- ⛶ **Full screen** button (CSS full-screen mode on iPhone)
 - 🔊 **Synthesised sound effects** (Web Audio, toggle in Settings, remembered)
 - 💾 **Autosave & resume** — close the tab mid-rally and pick up exactly where you left off; the tab going hidden pauses the game
 - 🏆 **Unified arcade stats** — best score, plays, total time, shared with the portal
@@ -91,6 +98,8 @@ Production build: `npm run build && npm run preview`. The build uses relative as
 | **P** / **Esc** | Pause / resume |
 | **R** | Restart |
 | **T** | Toggle dark / light theme (standalone page) |
+
+**On a phone:** drag a finger anywhere on the board and the paddle follows it; tap the board to launch the ball. The **Rules**, **Finish** and **Full screen** buttons are in the Game panel. On iPhone, add the page to the Home Screen for a view without browser bars.
 
 Hitting the ball with the paddle's **centre** sends it almost straight up; the **edges** send it away at up to 60°.
 
@@ -128,7 +137,7 @@ Losing the last ball in play costs a life; a lost ball or a new wall clears all 
 
 Row values from the top: **80, 70, 60, 50, 40, 30, 20, 10, 10**. Example: a 2-hit brick in the top row on level 3 scores 80 × 2 × 3 = **480**. Steel scores nothing.
 
-Breakout is score-attack: the levels never run out, so a run ends only when the last life is lost (outcome `over`).
+Breakout is score-attack: the levels never run out, so a run ends only when the last life is lost (outcome `over`), or when you end it with **Finish** (outcome `finished`, the current score is ranked).
 When a run ends the kit records it once in `localStorage` under `arcade.stats.breakout`
 (`best`, `plays`, `wins`, `totalScore`, `totalSeconds`, `lastScore`, `lastPlayedAt`).
 
@@ -145,7 +154,7 @@ import { BreakoutGame, BreakoutDemo } from '@arcade/breakout';
 
 <BreakoutGame
   embedded                                   // hide the page title; the portal shows it
-  onGameOver={(score) => submitScore('breakout', score)}
+  onGameOver={(score, info) => submitScore('breakout', score)}   // info.finished: ended early with Finish
   onStatusChange={({ status, score, seconds }) => updateHeader(status, seconds)}
 />
 <BreakoutDemo active={cardIsVisible} />       // landing-page attract mode
@@ -204,6 +213,7 @@ src/
   components/          Playfield (SVG, full + mini), PowerUpList, SoundToggle, palette
   demo/BreakoutDemo.tsx  landing-page attract mode
   BreakoutGame.tsx     the embeddable game (ArcadeGameProps)
+  rules.tsx            Rules dialog content and bounce diagram
   App.tsx              standalone page: <ArcadeShell><BreakoutGame/></ArcadeShell>
   main.tsx             entry; loads the shared arcade.css once
   index.ts             package entry used by Arcade-Game-Center
